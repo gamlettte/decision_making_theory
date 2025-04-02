@@ -6,10 +6,10 @@ local function verify_matrix(matrix)
     ---@type integer
     local matrix_size = #matrix
 
-    for index, value in ipairs(matrix) do
-        assert(#value == matrix_size,
+    for row_index, row in ipairs(matrix) do
+        assert(#row == matrix_size,
             "matrix is not square: h = " .. matrix_size ..
-            ", w[".. index .."] =" .. #value)
+            ", w[".. row_index .."] =" .. #row)
     end
 end
 
@@ -90,6 +90,10 @@ local function is_matrix_antisymmetric(matrix)
 
     verify_matrix(matrix)
 
+    if #matrix == 1 then
+        return true
+    end
+
     ---@type boolean
     local is_antisymmetric = true
 
@@ -114,12 +118,21 @@ local function is_matrix_asymmetric(matrix)
 
     verify_matrix(matrix)
 
+    if #matrix == 1 then
+        return false
+    end
+
     ---@type boolean
     local is_asymmetric = true
 
     for i = 1, #matrix, 1 do
         for ii = i, #matrix, 1 do
-            if matrix[i][ii] ~= matrix[ii][i] then
+            if i == ii then
+                if matrix[i][i] == 1 then
+                    is_asymmetric = false
+                    break
+                end
+            elseif matrix[i][ii] ~= matrix[ii][i] then
                 is_asymmetric = false
                 break
             end

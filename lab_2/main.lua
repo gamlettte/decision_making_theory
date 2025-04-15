@@ -14,7 +14,7 @@ local function add_relative_path(dir)
                ..package.path
 end
 
-local relations_methods = require("relations_methods")
+local evaluation_methods = require("evaluation_methods")
 
 add_relative_path("../misc")
 ---@module json
@@ -31,8 +31,8 @@ for index, value in pairs(matrix) do
     print(tostring(index) .. " ~ " .. table.concat(value, " "))
 end
 
-print("is matrix reflective: " .. tostring(relations_methods.is_matrix_reflective(matrix)))
-print("is matrix antireflective: " .. tostring(relations_methods.is_matrix_antireflective(matrix)))
-print("is matrix symmetric: " .. tostring(relations_methods.is_matrix_symmetric(matrix)))
-print("is matrix antisymmetric: " .. tostring(relations_methods.is_matrix_antisymmetric(matrix)))
-print("is matrix transitive: " .. tostring(relations_methods.is_matrix_transitive(matrix)))
+
+print("wald evaluation index: ".. evaluation_methods.wald_evaluation(matrix))
+print("savage evaluation index: ".. evaluation_methods.savage_evaluation(matrix))
+print("hurwitz evaluation index: ".. evaluation_methods.hurwitz_evaluation(matrix))
+print("laplace evaluation index: ".. evaluation_methods.laplace_evaluation(matrix))

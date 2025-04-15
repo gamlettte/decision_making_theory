@@ -1,5 +1,23 @@
-local test_runner = require("test_runner")
+---@package
+---@param dir string 
+---@return nil
+local function add_relative_path(dir)
+  local spath =
+      debug.getinfo(1,'S').source
+        :sub(2)
+        :gsub("^([^/])","./%1")
+        :gsub("[^/]*$","")
+  dir=dir and (dir.."/") or ""
+  spath = spath..dir
+  package.path = spath.."?.lua;"
+               ..spath.."?/init.lua"
+               ..package.path
+end
+
 local relations_methods = require("relations_methods")
+
+add_relative_path("../misc")
+local test_runner = require("test_runner")
 
 ---@type test_runner
 local tr = test_runner.new()

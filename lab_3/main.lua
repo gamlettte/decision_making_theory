@@ -14,7 +14,7 @@ local function add_relative_path(dir)
                ..package.path
 end
 
-local relations_methods = require("relations_methods")
+local evaluation_methods = require("evaluation_methods")
 
 add_relative_path("../misc")
 ---@module json
@@ -24,15 +24,23 @@ local json = require("json")
 ---@type string
 local matrix_string = io.open("main_matrix.json", "r"):read("*a")
 
+---@type table
+local json_data = json.decode(matrix_string)
+
 ---@type integer[][]
-local matrix = json.decode(matrix_string).matrix
+local matrix = json_data.matrix
+
+---@number[]
+local probability_vector = json_data.probability_vector
+assert(probability_vector ~= nil)
 
 for index, value in pairs(matrix) do
     print(tostring(index) .. " ~ " .. table.concat(value, " "))
 end
 
-print("is matrix reflective: " .. tostring(relations_methods.is_matrix_reflective(matrix)))
-print("is matrix antireflective: " .. tostring(relations_methods.is_matrix_antireflective(matrix)))
-print("is matrix symmetric: " .. tostring(relations_methods.is_matrix_symmetric(matrix)))
-print("is matrix antisymmetric: " .. tostring(relations_methods.is_matrix_antisymmetric(matrix)))
-print("is matrix transitive: " .. tostring(relations_methods.is_matrix_transitive(matrix)))
+print(table.concat(probability_vector, " "))
+
+
+print("bayes-laplace evaluation index: ".. evaluation_methods.bayes_laplace_evaluation(matrix, probability_vector))
+print("hodges-lehmann evaluation index: ".. evaluation_methods.hodges_lehmann_evaluation(matrix, probability_vector, 1))
+print("hodges-lehmann evaluation index: ".. evaluation_methods.germeyer_evaluation(matrix, probability_vector))

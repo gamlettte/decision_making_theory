@@ -1,13 +1,13 @@
 ---@private
----@param array number[]
+---@param vector number[]
 ---@return integer index of largest number
 ---@nodiscard
-local function get_largest_value_index(array)
+local function get_largest_value_index(vector)
 
     ---@type integer, number
     local largest_index, largest_value = 0, -math.huge
 
-    for index, value in ipairs(array) do
+    for index, value in ipairs(vector) do
         if value > largest_value then
             largest_value = value
             largest_index = index

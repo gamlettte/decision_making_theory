@@ -42,5 +42,5 @@ print(table.concat(probability_vector, " "))
 
 
 print("bayes-laplace evaluation index: ".. evaluation_methods.bayes_laplace_evaluation(matrix, probability_vector))
-print("hodges-lehmann evaluation index: ".. evaluation_methods.hodges_lehmann_evaluation(matrix, probability_vector, 1))
-print("hodges-lehmann evaluation index: ".. evaluation_methods.germeyer_evaluation(matrix, probability_vector))
+print("hodges-lehmann evaluation index: ".. evaluation_methods.hodges_lehmann_evaluation(matrix, probability_vector, 0))
+print("germeyer evaluation index: ".. evaluation_methods.germeyer_evaluation(matrix, probability_vector))

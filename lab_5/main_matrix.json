@@ -1,0 +1,8 @@
+[
+  { "votes": 34, "ranking": ["A", "B", "C"] },
+  { "votes": 23, "ranking": ["A", "C", "B"] },
+  { "votes": 26, "ranking": ["B", "A", "C"] },
+  { "votes": 2,  "ranking": ["B", "C", "A"] },
+  { "votes": 13, "ranking": ["C", "A", "B"] },
+  { "votes": 12, "ranking": ["C", "B", "A"] }
+]

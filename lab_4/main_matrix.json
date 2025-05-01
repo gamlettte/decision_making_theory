@@ -1,0 +1,97 @@
+{
+    "matrix_1" : [
+        {
+            "probability" : 1.0,
+            "decision_array" : [
+                {
+                    "duration" : 5,
+                    "price" : 700,
+                    "payoff" : [
+                        {
+                            "profit" : 280,
+                            "probability" : 0.8,
+                        },
+                        {
+                            "profit" : -80,
+                            "probability" : 0.2,
+                        },
+                    ],
+                },
+                {
+                    "duration" : 5,
+                    "price" : 300,
+                    "payoff" : [
+                        {
+                            "profit" : 180,
+                            "probability" : 0.8,
+                        },
+                        {
+                            "profit" : -55,
+                            "probability" : 0.2,
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+    "matrix_2" : [
+        {
+            "probability" : 0.7,
+            "decision_array" : [
+                {
+                    "duration" : 4,
+                    "price" : 700,
+                    "payoff" : [
+                        {
+                            "profit" : 280,
+                            "probability" : 0.9,
+                        },
+                        {
+                            "profit" : -80,
+                            "probability" : 0.1,
+                        },
+                    ],
+                },
+                {
+                    "duration" : 4,
+                    "price" : 300,
+                    "payoff" : [
+                        {
+                            "profit" : 180,
+                            "probability" : 0.9,
+                        },
+                        {
+                            "profit" : -55,
+                            "probability" : 0.1,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            "probability" : 0.3,
+            "decision_array" : [
+                {
+                    "duration" : 4,
+                    "price" : 0,
+                    "payoff" : [
+                        {
+                            "profit" : 0.0,
+                            "probability" : 1.0,
+                        },
+                    ],
+                },
+                {
+                    "duration" : 4,
+                    "price" : 0,
+                    "payoff" : [
+                        {
+                            "profit" : 0.0,
+                            "probability" : 1.0,
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}
